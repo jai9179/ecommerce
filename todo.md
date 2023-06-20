@@ -1,0 +1,13 @@
+- add product ✔️
+- get product ✔️
+- Update Product ✔️
+- Delete Product ✔️
+- get products ✔️
+- add to cart ✔️
+- update cart ✔️
+- delete cart ✔️
+- get cart details ✔️
+- init order: post , get , put ,delete ✔️ , orders list
+- init payment
+- get sucess page
+- get failure page

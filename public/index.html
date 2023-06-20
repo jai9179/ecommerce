@@ -1,0 +1,72 @@
+<!-- Inside index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Order Payment</title>
+  </head>
+
+  <body>
+    <hr />
+    <h2>Ecommerce-SAI-DHOOP</h2>
+    <h3>Description</h3>
+
+    <ul>
+      <li>Best DhoopBatti and AgarBatti</li>
+      <li>
+        Available with many frangrances such as rose , lavender , mogra , lilly
+      </li>
+    </ul>
+
+    <span>
+      <button id="pay-button">Pay Now & Get Access</button>
+    </span>
+    <hr />
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+      var options = {
+        key: "rzp_test_fs0NdO7p6bY2XZ",
+        amount: "400000",
+        currency: "INR",
+        name: "Ecommerce Website",
+        description:
+          "Pay & Checkout this Course, fill your home with different frangrances",
+        image:
+          "https://media.geeksforgeeks.org/wp-content/uploads/20210806114908/dummy-200x200.png",
+        order_id: "order_M49ULrIjCgSKVK",
+        handler: function (response) {
+          console.log(response);
+          alert("This step of Payment Succeeded");
+        },
+        prefill: {
+          //Here we are prefilling random contact
+          contact: "935488812",
+          //name and email id, so while checkout
+          name: "Jai Grover",
+          email: "jaigroverjss@gmail.com",
+        },
+        // "notes" : {
+        // 	"description":"Best Course for SDE placements",
+        // 	"language":"Available in 4 major Languages JAVA,
+        // 				C/C++, Python, Javascript",
+        // 	"access":"This course have Lifetime Access"
+        // },
+        theme: {
+          color: "#2300a3",
+        },
+      };
+      var razorpayObject = new Razorpay(options);
+      console.log(razorpayObject);
+      razorpayObject.on("payment.failed", function (response) {
+        console.log(response);
+        alert("This step of Payment Failed");
+      });
+
+      document.getElementById("pay-button").onclick = function (e) {
+        razorpayObject.open();
+        e.preventDefault();
+      };
+    </script>
+  </body>
+</html>
