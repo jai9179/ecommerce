@@ -8,6 +8,6 @@
 - delete cart ✔️
 - get cart details ✔️
 - init order: post , get , put ,delete ✔️ , orders list
-- init payment
-- get sucess page
-- get failure page
+- init payment✔️
+- get sucess page ✔️
+- get failure page ✔️
